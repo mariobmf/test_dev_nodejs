@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      target: dev
+    volumes:
+      - .:/app
+      - nodemodules:/app/node_modules
+    command: yarn dev
+    ports:
+      - "3333:3333"
+    environment: 
+      MONGO_URL: mongodb
+    networks:
+      - app-network
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    volumes:     
+      - dbdata:/data/db
+    networks:
+      - app-network  
+
+networks:
+  app-network:
+
+volumes:
+  dbdata:
+  nodemodules:
