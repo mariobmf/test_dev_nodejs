@@ -2,6 +2,7 @@ import 'dotenv/config';
 import 'express-async-errors';
 
 import express, { NextFunction, Request, Response } from 'express';
+import cors from 'cors';
 import { errors } from 'celebrate';
 import { routes } from './routes';
 import './database';
@@ -9,6 +10,7 @@ import AppError from './errors/AppError';
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 app.use(errors());
