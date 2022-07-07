@@ -36,10 +36,17 @@ Resolução dos exercícios do teste para desenvolvedor NodeJS
 ### Como executar os exercícios:
 
 ```
-### Acesse a pasta do exercício e execute o `index.mjs`
+### Acesse a pasta do exercício e execute o `index.mjs`:
 
 # cd task-X
 # node src/index.mjs
+
+### OU execute os arquivos `index.mjs` direto da raiz do projeto:
+
+# node task-1/src/index.mjs
+# node task-2/src/index.mjs
+# node task-3/src/index.mjs
+# node task-4/src/index.mjs
 ```
 
 <br />
@@ -50,6 +57,7 @@ Resolução dos exercícios do teste para desenvolvedor NodeJS
 
 ### Requisitos:
 
+* NodeJS: v16.15+
 * Docker
 * Docker Compose
 
