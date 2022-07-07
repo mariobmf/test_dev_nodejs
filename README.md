@@ -75,9 +75,10 @@ Resolução dos exercícios do teste para desenvolvedor NodeJS
 ### Como executar os testes:
 
 ```
-### Acesse a pasta `server` do exercício 5 e execute o script de teste
+### Acesse a pasta `server` do exercício 5, instale as dependências e execute o script de teste
 
 # cd task-5
 # cd server
+# yarn
 # yarn test
 ```
