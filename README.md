@@ -15,8 +15,14 @@ Resolução dos exercícios do teste para desenvolvedor NodeJS
 
 # Índice
 
-1. [Exercícios 1 ao 4](#exercícios-1-ao-4)
-2. [Exercícios 5](#exercício-5)
+  1. [Exercícios 1 ao 4](#exercícios-1-ao-4)
+      1. [Requisitos](#requisitos)
+      2. [Como executar os exercícios](#como-executar-os-exercícios)
+  2. [Exercícios 5](#exercício-5)
+      1. [Requisitos](#requisitos-1)
+      2. [Como executar o exercício](#como-executar-o-exercício)
+      3. [Acesso aos serviços](#acesso-aos-serviços)
+      4. [Como executar os testes](#como-executar-os-testes)
 
 <br />
 
