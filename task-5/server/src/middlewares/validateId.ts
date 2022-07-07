@@ -10,7 +10,7 @@ export default async function validateId(
   const {id} = request.params;
 
   if(!mongoose.Types.ObjectId.isValid(id)){
-    throw new AppError('invalid ID', 400);
+    throw new AppError('Invalid ID', 400);
   }
 
   return next();

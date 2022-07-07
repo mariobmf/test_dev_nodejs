@@ -1,0 +1,412 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de cadastro de veículos",
+    "description": "Essa API tem como objetivo a manipulação dos veículos",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333/",
+      "description": "Developer API"
+    }
+  ],
+  "paths": {
+    "/veiculos": {
+      "post": {
+        "summary": "Cadastro de veículos",
+        "description": "Realiza o cadastro de um veiculo",
+        "tags": ["Vehicles"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicle"
+              },
+              "examples": {
+                "vehicle": {
+                  "value": {
+                    "veiculo": "Fusca",
+                    "ano": "1996",
+                    "descricao": "Fusca Itamar, cor prata",
+                    "marca": "Volkswagen"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "summary": "Lista os veículos",
+        "description": "Retorna todos veículos cadastrados",
+        "tags": ["Vehicles"],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items":{
+                    "$ref": "#/components/schemas/Vehicle"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/veiculos/{id}": {
+      "get": {
+        "summary": "Detalhes de um veiculo",
+        "description": "Retorna os detalhes de um veiculo",
+        "tags": ["Vehicles"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do veiculo",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Vehicle not fount"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza todos dados de um veículos",
+        "description": "Atualiza todos dados de um veículos",
+        "tags": ["Vehicles"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do veiculo",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeVehicleData"
+              },
+              "examples": {
+                "vehicle": {
+                  "value": {
+                    "veiculo": "Fusca",
+                    "ano": "1996",
+                    "descricao": "Fusca Itamar, cor prata",
+                    "marca": "Volkswagen",
+                    "vendido": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Vehicle not fount"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Atualiza alguns dados do veículos",
+        "description": "Atualiza alguns dados do veículos",
+        "tags": ["Vehicles"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do veiculo",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateVehicle"
+              },
+              "examples": {
+                "vehicle": {
+                  "value": {
+                    "veiculo": "Fusca",
+                    "ano": "1996",
+                    "descricao": "Fusca Itamar, cor prata",
+                    "marca": "Volkswagen",
+                    "vendido": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Vehicle not fount"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Exclui o veiculo",
+        "description": "Exclui o veiculo",
+        "tags": ["Vehicles"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do veiculo",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "404": {
+            "description": "Vehicle not fount"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/veiculos/find": {
+      "get": {
+        "summary": "Lista os veículos pela query",
+        "description": "Retorna os veículos de acordo com o termo passado via parâmetro",
+        "tags": ["Vehicles"],
+        "parameters": [
+          {
+            "name": "veiculo",
+            "in": "query",
+            "description": "Nome do veiculo",
+            "required": false
+          },
+          {
+            "name": "marca",
+            "in": "query",
+            "description": "Marca do veiculo","enum": ["Toyota", "Volkswagen", "Hyundai", "Ford", "Honda", "Nissan", "Chevrolet", "Kia", "Fiat", "BMW"],
+            "required": false
+          },
+          {
+            "name": "ano",
+            "in": "query",
+            "description": "Ano do veiculo",
+            "required": false
+          },
+          {
+            "name": "descricao",
+            "in": "query",
+            "description": "Descrição do veiculo",
+            "required": false
+          },
+          {
+            "name": "vendido",
+            "in": "query",
+            "description": "Situação do veiculo",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items":{
+                    "$ref": "#/components/schemas/Vehicle"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Vehicle": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "veiculo": {
+            "type": "string"
+          },
+          "ano": {
+            "type": "number"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "marca": {
+            "type": "string",
+            "enum": ["Toyota", "Volkswagen", "Hyundai", "Ford", "Honda", "Nissan", "Chevrolet", "Kia", "Fiat", "BMW"]
+          },
+          "vendido": {
+            "type": "boolean"
+          },
+          "created": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateVehicle": {
+        "type": "object",
+        "properties": {
+          "veiculo": {
+            "type": "string",
+            "required": true
+          },
+          "ano": {
+            "type": "number",
+            "required": true
+          },
+          "descricao": {
+            "type": "string",
+            "required": true
+          },
+          "marca": {
+            "type": "string",
+            "enum": ["Toyota", "Volkswagen", "Hyundai", "Ford", "Honda", "Nissan", "Chevrolet", "Kia", "Fiat", "BMW"],
+            "required": true
+          }
+        }
+      },
+      "ChangeVehicleData": {
+        "type": "object",
+        "properties": {
+          "veiculo": {
+            "type": "string",
+            "required": true
+          },
+          "ano": {
+            "type": "number",
+            "required": true
+          },
+          "descricao": {
+            "type": "string",
+            "required": true
+          },
+          "marca": {
+            "type": "string",
+            "enum": ["Toyota", "Volkswagen", "Hyundai", "Ford", "Honda", "Nissan", "Chevrolet", "Kia", "Fiat", "BMW"],
+            "required": true
+          },
+          "vendido": {
+            "type": "boolean",
+            "required": true
+          }
+        }
+      },
+      "UpdateVehicle": {
+        "type": "object",
+        "properties": {
+          "veiculo": {
+            "type": "string"
+          },
+          "ano": {
+            "type": "number"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "marca": {
+            "type": "string",
+            "enum": ["Toyota", "Volkswagen", "Hyundai", "Ford", "Honda", "Nissan", "Chevrolet", "Kia", "Fiat", "BMW"]
+          },
+          "vendido": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

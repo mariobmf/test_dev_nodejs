@@ -76,6 +76,7 @@ Resolução dos exercícios do teste para desenvolvedor NodeJS
 
 ### Acesso aos serviços:
 * API: http://localhost:3333
+* API Documentation: http://localhost:3333/docs
 * APP WEB: http://localhost:3000
 
 <br />
