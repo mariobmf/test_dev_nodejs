@@ -1,10 +1,11 @@
 import { VehicleDTO } from "../../dto/VehicleDTO";
-import { FindByQueryDTO, UpdateVehicleDTO, VehicleCreateDTO,VehicleRepository } from "../VehicleRepository";
+import { FindByQueryDTO, UpdateVehicleDTO, CreateVehicleDTO } from "../../dto/VehicleRepositoryDTO";
+import { VehicleRepository } from "../VehicleRepository";
 
 class FakeVehicleRepository implements VehicleRepository {
   private vehicles: VehicleDTO[] = [];
 
-  public async create({veiculo, ano, descricao, marca}: VehicleCreateDTO) {
+  public async create({veiculo, ano, descricao, marca}: CreateVehicleDTO) {
     const vehicle = {
       id: `${new Date().getTime()}`,
       veiculo,

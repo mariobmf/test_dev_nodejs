@@ -1,30 +1,8 @@
-import { BrandType, VehicleDTO } from '../dto/VehicleDTO';
-
-export interface VehicleCreateDTO {
-  veiculo: string;
-  marca: BrandType;
-  ano: number;
-  descricao: string;
-}
-
-export interface UpdateVehicleDTO {
-  veiculo?: string;
-  ano?: number;
-  descricao?: string;
-  marca?: BrandType;
-  vendido?: boolean;
-}
-
-export interface FindByQueryDTO {
-  veiculo?: string;
-  ano?: number;
-  descricao?: string;
-  marca?: BrandType;
-  vendido?: boolean;
-}
+import { VehicleDTO } from '../dto/VehicleDTO';
+import { CreateVehicleDTO, FindByQueryDTO, UpdateVehicleDTO } from '../dto/VehicleRepositoryDTO';
 
 export interface VehicleRepository {
-  create: (data: VehicleCreateDTO) => Promise<VehicleDTO>;
+  create: (data: CreateVehicleDTO) => Promise<VehicleDTO>;
   findAll: () => Promise<VehicleDTO[]>;
   findByQuery: (query: FindByQueryDTO) => Promise<VehicleDTO[]>;
   findById: (id: string) => Promise<VehicleDTO | null>;

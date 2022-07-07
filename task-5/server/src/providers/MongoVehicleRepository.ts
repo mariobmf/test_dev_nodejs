@@ -1,8 +1,9 @@
 import { Vehicle } from "../models/Vehicle";
-import { FindByQueryDTO, UpdateVehicleDTO, VehicleCreateDTO,VehicleRepository } from "../repositories/VehicleRepository";
+import { FindByQueryDTO, UpdateVehicleDTO, CreateVehicleDTO } from "../dto/VehicleRepositoryDTO";
+import { VehicleRepository } from "../repositories/VehicleRepository";
 
 class MongoVehicleRepository implements VehicleRepository {
-  public async create({veiculo, ano, descricao, marca}: VehicleCreateDTO) {
+  public async create({veiculo, ano, descricao, marca}: CreateVehicleDTO) {
     const vehicle = await Vehicle.create({
       veiculo,
       ano,

@@ -14,6 +14,7 @@ export const LeftColumnContainer = styled.div`
   flex: 1;
   height: 100%;
   gap: 1rem;
+  overflow-y: auto;
 `;
 
 export const RightColumnContainer = styled.div`
