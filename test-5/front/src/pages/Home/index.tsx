@@ -185,6 +185,10 @@ const Home: React.FC = () => {
                   {`${vehicleDecade.amount} veículos`}
                 </p>
               ))}
+
+              {!vehiclesDecade || vehiclesDecade.length <= 0 &&(
+                <p>Nenhum veículo cadastrado</p>
+              )}
             </section>
 
             <section>
@@ -196,6 +200,10 @@ const Home: React.FC = () => {
                   {`${manufacturer.amount} veículos`}
                 </p>
               ))}
+
+              {!manufacturers || manufacturers.length <= 0 &&(
+                <p>Nenhum veículo cadastrado</p>
+              )}
             </section>
           </ReportContainer>
         </CardContainer>
