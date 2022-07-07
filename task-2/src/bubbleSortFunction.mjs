@@ -4,6 +4,7 @@
  * @returns number[]
  */
 export function bubbleSortFunction(items) {
+  console.time('bubbleSortFunction');
   const quantityOfItems = items.length;
 
   let swapped = false
@@ -14,8 +15,6 @@ export function bubbleSortFunction(items) {
         const temp = items[index];
         items[index] = items[index + 1];
         items[index + 1] = temp;
-
-        // [items[index], items[index+1]] = [items[index+1], items[index]];
         
         swapped = true;
       }
@@ -24,5 +23,6 @@ export function bubbleSortFunction(items) {
       break;
     }
   }
+  console.timeEnd('bubbleSortFunction');
   return items;
 }
