@@ -1,3 +1,8 @@
+/**
+ * @description sort a vector using the bubble sort method
+ * @param {number[]} items 
+ * @returns number[]
+ */
 export function bubbleSortFunction(items) {
   const quantityOfItems = items.length;
 

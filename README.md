@@ -38,7 +38,7 @@ Resolução dos exercícios do teste para desenvolvedor NodeJS
 ```
 ### Acesse a pasta do exercício e execute o `index.mjs`
 
-# cd test-X
+# cd task-X
 # node src/index.mjs
 ```
 
@@ -60,7 +60,7 @@ Resolução dos exercícios do teste para desenvolvedor NodeJS
 ```
 ### Acesse a pasta do exercício e execute o docker
 
-# cd test-5
+# cd task-5
 # docker compose up
 ```
 
@@ -75,8 +75,9 @@ Resolução dos exercícios do teste para desenvolvedor NodeJS
 ### Como executar os testes:
 
 ```
-### Acesse a pasta do exercício e execute o script de teste
+### Acesse a pasta `server` do exercício 5 e execute o script de teste
 
-# cd test-5
+# cd task-5
+# cd server
 # yarn test
 ```
