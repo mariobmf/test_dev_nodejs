@@ -3,12 +3,14 @@ import { FindByQueryDTO, UpdateVehicleDTO, VehicleCreateDTO,VehicleRepository } 
 
 class MongoVehicleRepository implements VehicleRepository {
   public async create({veiculo, ano, descricao, marca}: VehicleCreateDTO) {
-    await Vehicle.create({
+    const vehicle = await Vehicle.create({
       veiculo,
       ano,
       descricao,
       marca
     })
+
+    return vehicle;
   }
   
   public async findAll() {

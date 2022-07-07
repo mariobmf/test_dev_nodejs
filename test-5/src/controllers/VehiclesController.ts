@@ -19,14 +19,14 @@ class VehiclesController {
 
     const createVehicleService = new CreateVehicleService(mongoVehicleRepository);
 
-    createVehicleService.execute({
+    const vehicle = await createVehicleService.execute({
       veiculo,
       marca,
       ano,
       descricao
     });
     
-    response.status(201).send();
+    response.status(201).json(vehicle);
   }
 
   public async show(request: Request, response:Response) {

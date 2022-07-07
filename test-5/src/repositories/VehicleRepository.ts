@@ -24,7 +24,7 @@ export interface FindByQueryDTO {
 }
 
 export interface VehicleRepository {
-  create: (data: VehicleCreateDTO) => Promise<void>;
+  create: (data: VehicleCreateDTO) => Promise<VehicleDTO>;
   findAll: () => Promise<VehicleDTO[]>;
   findByQuery: (query: FindByQueryDTO) => Promise<VehicleDTO[]>;
   findById: (id: string) => Promise<VehicleDTO | null>;

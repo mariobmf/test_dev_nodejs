@@ -1,8 +1,9 @@
+import { BrandType } from "../dto/VehicleDTO";
 import { VehicleRepository } from "../repositories/VehicleRepository";
 
 interface CreateVehicleProps {
   veiculo: string;
-  marca: string;
+  marca: BrandType;
   ano: number;
   descricao: string;
 }
@@ -13,13 +14,15 @@ class CreateVehicleService {
   ) {}
 
   public async execute({veiculo, ano, descricao, marca}: CreateVehicleProps) {
-    await this.vehicleRepository.create({
+    const vehicle = await this.vehicleRepository.create({
       ano,
       descricao,
       marca,
       veiculo
     });
+
+    return vehicle;
   }
 }
 
-export {CreateVehicleService};
+export { CreateVehicleService };
